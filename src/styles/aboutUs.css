@@ -1,0 +1,24 @@
+body {
+  margin: 0%;
+}
+
+.about-us {
+  height: 100%;
+  /* width: 100%; */
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 10px;
+}
+
+@media (max-width: 425px) {
+  .about-us {
+    margin-right: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .about-us {
+    width: 100%;
+  }
+}
