@@ -12,7 +12,7 @@ const initialState = {
     {
       id: 1,
       img: "",
-      name: "Bloom Coffee",
+      business_name: "Bloom Coffee",
       description: "A cozy place for coffee lovers.",
       address: "2300 E Rancier St",
       city: "Killeen",
@@ -24,7 +24,7 @@ const initialState = {
     {
       id: 2,
       img: "",
-      name: "Bobby B's",
+      business_name: "Bobby B's",
       description: "BBQ.",
       address: "3601 Zephyr Rd",
       city: "Killeen",
@@ -36,7 +36,7 @@ const initialState = {
     {
       id: 3,
       img: "",
-      name: "Obok Grill Club",
+      business_name: "Obok Grill Club",
       description: "Great Bar & Grill",
       address: "2815 S Fort Hood, Killeen, TX",
       hours: "Daily: 8am - 8pm",
@@ -48,7 +48,7 @@ const initialState = {
     {
       id: 4,
       img: "",
-      name: "Generation Barber Shop",
+      business_name: "Generation Barber Shop",
       description: "Hair Cuts For All.",
       address: "15242 Farmer to Market Rd 1825, Pfluger, TX",
       city: "Pflugerville",
@@ -60,7 +60,7 @@ const initialState = {
     {
       id: 5,
       img: "",
-      name: "Pet Supply Plus Killeen",
+      business_name: "Pet Supply Plus Killeen",
       description: "Pet needs for your babies.",
       address: "3700 W Stan Schlueter Loop #100",
       city: "Killeen",

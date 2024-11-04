@@ -32,6 +32,7 @@ const UserProfile = () => {
       {userBusinessList.map(business => (
         <div>
           <h3>{business.business_name}</h3>
+          
         </div>
       ))}
     </div>

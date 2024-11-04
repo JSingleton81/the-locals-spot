@@ -5,11 +5,13 @@ import SignUp from "./components/SignUp.js";
 import BusinessProfile from "./components/BusinessProfile.js";
 import UserProfile from "./components/UserProfile.js";
 import Home from "./components/Home.js";
+import Dashboard from "./components/Dashboard.js";
 import AboutUs from "./components/AboutUs.js";
 import ContactUs from "./components/ContactUs.js";
 import AddBusiness from "./components/AddBusiness.js";
 import UpdateBusiness from "./components/UpdateBusiness.js";
-import {parse} from "cookie"
+import News from "./components/News.js";
+import {parse} from "cookie";
 
 const checkAuth = () => {
   const cookies = parse(document.cookie);
@@ -31,8 +33,10 @@ const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/dashboard" element={<Dashboard/>} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/contact" element={<ContactUs />} />
+      <Route path="/news" element={<News />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signUp" element={<SignUp />} />
       <Route path="/addBusiness" element={<ProtectedRoute component={AddBusiness} />} />

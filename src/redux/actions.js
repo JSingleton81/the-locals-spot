@@ -26,3 +26,11 @@ export const updateBusiness = (business) => {
     payload: business,
   };
 };
+
+export const logoutUser = () => {
+  return {
+    type: 'LOGOUT_USER',
+  };
+};
+
+
