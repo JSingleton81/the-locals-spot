@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import Menu from "@mui/material/Menu";
 import { MenuItem } from "@mui/material";
-// import {serialize } from "cookie";
 import Logout from "../components/Logout";
 import { useSelector } from "react-redux";
 import "../styles/navBar.css";
@@ -15,7 +14,6 @@ import "../styles/navBar.css";
 const NavBar = (props) => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
-  // const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleMenuOpen = (event) => {
@@ -26,12 +24,7 @@ const NavBar = (props) => {
     setAnchorEl(null);
   };
 
-  // const handleLogout = () => {
-  //   document.cookie = serialize("loggedIn, null", {
-  //     maxAge: 0,
-  //   });
-  //   navigate("/login")
-  // }
+console.log("hello", user)
 
   return (
     <AppBar position="relative">
@@ -81,14 +74,17 @@ const NavBar = (props) => {
           The Locals Spots
         </Typography>
         <ul className="nav-list">
-          {user ? (
+          {user.isAuthenticated ? (
             <>
+              <li className="nav-list-item">
+                Welcome: {user.username}
+              </li>
               <li className="nav-list-item">
                 <Link
                   style={{ textDecoration: "none", color: "inherit" }}
-                  to="/businessProfile"
+                  to="/userProfile"
                 >
-                  Welcome: {user.username}
+                  Profile
                 </Link>
               </li>
               <li className="nav-list-item">

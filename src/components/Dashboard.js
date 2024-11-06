@@ -1,8 +1,8 @@
 import React from 'react';
-import TotalUsers from '../components/TotalUsers';
-import NewSignups from '../components/NewSignups';
-import TotalBusinesses from '../components/TotalBusinesses';
-import NewBusinesses from '../components/NewBusinesses';
+import TotalUsers from '../pages/TotalUsers';
+import NewSignups from '../pages/NewSignups';
+import TotalBusinesses from '../pages/TotalBusinesses';
+import NewBusinesses from '../pages/NewBusinesses';
 import "../styles/dashboard.css"; // Import the CSS file
 
 const Dashboard = () => {

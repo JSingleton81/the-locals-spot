@@ -6,11 +6,11 @@ import BusinessProfile from "./components/BusinessProfile.js";
 import UserProfile from "./components/UserProfile.js";
 import Home from "./components/Home.js";
 import Dashboard from "./components/Dashboard.js";
-import AboutUs from "./components/AboutUs.js";
-import ContactUs from "./components/ContactUs.js";
+import AboutUs from "./pages/AboutUs.js";
+import ContactUs from "./pages/ContactUs.js";
 import AddBusiness from "./components/AddBusiness.js";
 import UpdateBusiness from "./components/UpdateBusiness.js";
-import News from "./components/News.js";
+import News from "./pages/News.js";
 import {parse} from "cookie";
 
 const checkAuth = () => {

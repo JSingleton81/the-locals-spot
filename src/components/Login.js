@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField, Button, Container } from "@mui/material";
-import {serialize }from "cookie";
+import { serialize } from "cookie";
 import { setUser } from "../redux/features/userSlice";
 import { useDispatch } from "react-redux";
-import { createCookie } from "../utils/cookies"
-import "../styles/login.css"
+import { createCookie } from "../utils/cookies";
+import "../styles/login.css";
 import { fetchUserWithClientToken } from "../utils/api";
 
 const Login = (props) => {
@@ -18,40 +18,46 @@ const Login = (props) => {
 
   const handleTextChange = (e) => {
     const { name, value } = e.target;
-    setState((prevState) => {
-      return {
-        ...prevState,
-        [name]: value,
-      };
-    });
+    setState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
-  const login = (e) => {
+  const login = async (e) => {
     e.preventDefault();
-    console.log(state, "loginButton")
-    fetch(process.env.REACT_APP_API_URL+"/login",{
-      method:"POST",
-      headers:{
-       "Content-Type":"application/json" 
-      },
-      body: JSON.stringify(state)
-    })
-    .then(response => {
-      return response.json()
-    })
-    .then(async(data) => {
-      console.log(data, "this is data")
-      createCookie("client_token", data.access_token)
-      const results= await fetchUserWithClientToken()
-      console.log(results)
-    })
-    // set cookie here
-    // set loggedIn = true and max-age = 60*1000 (one minute)
-    document.cookie = serialize ("loggedIn", true, {
-      maxAge: 60 * 1000,
-    });
-    dispatch(setUser(state))
-    navigate("/");
+    console.log(state, "loginButton");
+
+    try {
+      const response = await fetch(process.env.REACT_APP_API_URL + "/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(state),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+      console.log(data, "this is data");
+
+      createCookie("client_token", data.access_token);
+      const results = await fetchUserWithClientToken();
+      console.log(results);
+
+      // Set cookie here
+      document.cookie = serialize("loggedIn", true, {
+        maxAge: 60 * 1000,
+      });
+
+      dispatch(setUser(state));
+      navigate("/");
+    } catch (error) {
+      console.error("There was a problem with the login request:", error);
+    }
   };
 
   return (
@@ -72,7 +78,7 @@ const Login = (props) => {
             value={state.password}
             name="password"
             label="Password"
-            type="text"
+            type="password" // Changed to password type for security
           />
           <Button
             type="submit"
@@ -89,5 +95,3 @@ const Login = (props) => {
 };
 
 export default Login;
-
-

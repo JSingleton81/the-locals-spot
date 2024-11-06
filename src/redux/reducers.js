@@ -7,12 +7,14 @@ const user = (state = initialState.user, action) => {
       return {
         ...state,
         username: action.payload,
+        isAuthenticated: true, // Set isAuthenticated to true on login
       };
     
     case "SIGN_UP":
       return{
         ...state,
-        user: action.payload
+        user: action.payload,
+        isAuthenticated: true, // Set isAuthenticated to true on sign up
       };
 
       case 'LOGOUT_USER':

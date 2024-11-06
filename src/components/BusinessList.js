@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, Paper, Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@mui/material';
 import BusinessItem from "../components/BusinessItem.js";
 import "../styles/businessList.css";
 
@@ -67,29 +68,36 @@ const businesses = [
 
 const BusinessList = () => {
   return (
-    <div className="business-list">
-      <table>
-        <thead>
-          <tr>
-            <th>Business Name</th>
-            <th>Description</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>State</th>
-            <th>ZIP</th>
-            <th>Hours</th>
-            <th>Image</th>
-          </tr>
-        </thead>
-        <tbody>
-          {businesses.map((business) => (
-            <BusinessItem key={business.id} business={business} />
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <Container maxWidth="lg" className="business-list">
+      <Paper elevation={3} className="business-paper">
+        <Typography variant="h4" component="h2" gutterBottom>
+          Business List
+        </Typography>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Business Name</TableCell>
+              <TableCell>Description</TableCell>
+              <TableCell>Address</TableCell>
+              <TableCell>City</TableCell>
+              <TableCell>State</TableCell>
+              <TableCell>ZIP</TableCell>
+              <TableCell>Hours</TableCell>
+              <TableCell>Image</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell colSpan={8}>Additional Information</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {businesses.map((business) => (
+              <BusinessItem key={business.id} business={business} />
+            ))}
+          </TableBody>
+        </Table>
+      </Paper>
+    </Container>
   );
 };
 
 export default BusinessList;
-
